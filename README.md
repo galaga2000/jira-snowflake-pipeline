@@ -12,11 +12,11 @@ This repository contains SQL scripts and a Python stored procedure for loading J
 
 2. **`2-create-landing-table.sql`**
 
-   * Creates a transient landing table `RAW_JIRA_ISSUES_DEV`
+   * Creates a transient landing table `RAW_JIRA_ISSUES`
    * Schema:
 
      ```sql
-     CREATE OR REPLACE TRANSIENT TABLE RAW_JIRA_ISSUES_DEV (
+     CREATE OR REPLACE TRANSIENT TABLE RAW_JIRA_ISSUES (
        "KEY" STRING,
        "RAW_DATA" VARIANT
      );
@@ -26,7 +26,7 @@ This repository contains SQL scripts and a Python stored procedure for loading J
 
    * Defines the Python-based stored procedure `fetch_raw_jira_issues_to_snowflake_batch`
    * Fetches all issues via JIRA REST API (batched and cleaned)
-   * Truncates and loads data into `RAW_JIRA_ISSUES_DEV`
+   * Truncates and loads data into `RAW_JIRA_ISSUES`
    * Emits INFO-level logs to `SNOWFLAKE.TELEMETRY.EVENTS` with a unique `run_id`
 
 4. **`4-call-load-jira-issues.sql`**
@@ -56,7 +56,7 @@ This repository contains SQL scripts and a Python stored procedure for loading J
      ORDER BY TIMESTAMP DESC;
 
      -- Verify loaded data
-     SELECT * FROM RAW_JIRA_ISSUES_DEV;
+     SELECT * FROM RAW_JIRA_ISSUES;
      ```
 
 ## Prerequisites
@@ -119,7 +119,7 @@ This repository contains SQL scripts and a Python stored procedure for loading J
 
 * **Logs** are captured in `SNOWFLAKE.TELEMETRY.EVENTS` at INFO level and above.
 * Use the returned `run_id` to filter log entries and trace execution steps.
-* Verify row counts by querying `RAW_JIRA_ISSUES_DEV`.
+* Verify row counts by querying `RAW_JIRA_ISSUES`.
 
 ---
 
