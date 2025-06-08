@@ -35,7 +35,8 @@ def fetch_jira_issues(username, token, jql_query, batch_size=1000):
     headers = {"Accept": "application/json"}
     auth    = (username, token)
     fields  = "*all"
-
+    # TODO: replace fields with actual fields you want to capture
+    
     # 1) Initial call to get total, effective page size, and first page
     params = {"jql": jql_query, "startAt": 0, "maxResults": batch_size, "fields": fields}
     init_rsp = session_client.get(api_url, headers=headers, auth=auth, params=params)
