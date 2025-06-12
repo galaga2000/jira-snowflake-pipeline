@@ -10,6 +10,3 @@ WHERE RECORD_TYPE = 'LOG'
 AND RECORD_ATTRIBUTES:job = 'jira_loader'
 AND RECORD_ATTRIBUTES:run_id = '<query-run-id>'
 ORDER BY TIMESTAMP desc;
-
-
---select * from RAW_JIRA_ISSUES;
