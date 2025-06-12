@@ -12,4 +12,4 @@ AND RECORD_ATTRIBUTES:run_id = '<query-run-id>'
 ORDER BY TIMESTAMP desc;
 
 
-select * from RAW_JIRA_ISSUES;
+--select * from RAW_JIRA_ISSUES;

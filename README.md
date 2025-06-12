@@ -1,14 +1,15 @@
-# JIRA to Snowflake Integration
+# JIRA to Snowflake Integration (Archived)
 
-This repository contains SQL scripts and a Python stored procedure for loading JIRA issues into Snowflake and querying execution logs. Follow the steps below to set up, run, and monitor the integration.
+This repository contains a reference implementation of a JIRA to Snowflake integration using SQL scripts and a Python stored procedure. The code demonstrates how to load JIRA issues into Snowflake using the JIRA REST API.
+
+⚠️ **This is an archived repository for reference purposes only.** The code is provided as-is and should be adapted for your specific use case.
 
 ## Files
 
 1. **`1-jira-external-integration.sql`**
 
-   * Creates a network rule (`JIRA_API_Rule`)
-   * Creates an External Access Integration (`JIRA_API_Integration`)
-   * Stores JIRA credentials in a secret (`jira_api_secret`)
+   * Example configuration for Snowflake network rules and external integrations
+   * Placeholder for JIRA API credentials (replace with your own credentials)
 
 2. **`2-create-landing-table.sql`**
 
@@ -31,11 +32,8 @@ This repository contains SQL scripts and a Python stored procedure for loading J
 
 4. **`4-call-load-jira-issues.sql`**
 
-   * Executes the stored procedure to perform the data load:
-
-     ```sql
-     CALL fetch_raw_jira_issues_to_snowflake_batch();
-     ```
+   * Example of how to call the stored procedure
+   * Replace with your own stored procedure name if needed
 
 5. **`query-logs.sql`**
 

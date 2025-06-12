@@ -2,6 +2,5 @@ CREATE OR REPLACE TRANSIENT TABLE RAW_JIRA_ISSUES_DEV (
     "KEY" STRING,
     "RAW_DATA" VARIANT
 )
-
 -- Define clustering if you have a high volume of data:
 --ALTER TABLE RAW_JIRA_ISSUES_DEV CLUSTER BY ("KEY");
